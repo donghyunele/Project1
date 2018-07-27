@@ -23,6 +23,11 @@ public class PageController {
         return "signup";
     }
 
+    @GetMapping("/event")
+    public String event(){
+        return "event";
+    }
+
     //사용자 회원가입 관련 컨트롤러
     @PostMapping("/signup")
     public String signup(String id, String password, String name, int zipcode, String mainaddr, String subaddr, String refaddr){
@@ -36,7 +41,6 @@ public class PageController {
         users.setMainaddr(mainaddr);
         users.setSubaddr(subaddr);
         users.setRefaddr(refaddr);
-        //todo 주소 추가
 
         usersDAO.save(users);
 
