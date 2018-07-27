@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 <html>
-
 <body>
 
 <form action="signup" method="POST">
@@ -58,8 +57,6 @@
 <!-- jQuery와 Postcodify를 로딩한다 -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-
-<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 
 </body>
 

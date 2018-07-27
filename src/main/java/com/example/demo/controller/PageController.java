@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Objects;
+
 @Controller
 public class PageController {
 
@@ -30,19 +32,27 @@ public class PageController {
 
     //사용자 회원가입 관련 컨트롤러
     @PostMapping("/signup")
-    public String signup(String id, String password, String name, int zipcode, String mainaddr, String subaddr, String refaddr){
+    public String signup(String id, String password, String name, int zipCode, String mainAddr, String subAddr, String refAddr){
+
+        if(Objects.isNull(id) || Objects.isNull(password) || Objects.isNull(name) || Objects.isNull(zipCode) || Objects.isNull(mainAddr) ||
+                Objects.isNull(subAddr) || Objects.isNull(refAddr)) {
+            return "signup";
+        }
 
         Users users = new Users();
 
         users.setId(id);
         users.setPassword(password);
         users.setName(name);
-        users.setZipcode(zipcode);
-        users.setMainaddr(mainaddr);
-        users.setSubaddr(subaddr);
-        users.setRefaddr(refaddr);
+        users.setZipCode(zipCode);
+        users.setMainAddr(mainAddr);
+        users.setSubAddr(subAddr);
+        users.setRefAddr(refAddr);
 
-        usersDAO.save(users);
+        Users registeredUser = usersDAO.save(users);
+        if( Objects.isNull(registeredUser)) {
+            return "signup";
+        }
 
         return "redirect:/";
     }
