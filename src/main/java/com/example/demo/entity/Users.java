@@ -18,6 +18,8 @@ public class Users {
     private String password;
     private String name;
 
-    //todo 주소 추가
-
+    private int zipcode;
+    private String mainaddr;
+    private String subaddr;
+    private String refaddr;
 }

@@ -25,18 +25,22 @@ public class PageController {
 
     //사용자 회원가입 관련 컨트롤러
     @PostMapping("/signup")
-    public String signup(String id, String password, String name){
+    public String signup(String id, String password, String name, int zipcode, String mainaddr, String subaddr, String refaddr){
 
         Users users = new Users();
 
         users.setId(id);
         users.setPassword(password);
         users.setName(name);
+        users.setZipcode(zipcode);
+        users.setMainaddr(mainaddr);
+        users.setSubaddr(subaddr);
+        users.setRefaddr(refaddr);
         //todo 주소 추가
 
         usersDAO.save(users);
 
-        return "main";
+        return "redirect:/";
     }
 
 }
