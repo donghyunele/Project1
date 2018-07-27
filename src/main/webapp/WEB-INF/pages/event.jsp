@@ -22,61 +22,15 @@
 <body>
 <button type="button" onclick="location.href='/'">메인으로가기</button>
 <br />
-        <a id="kakao-link-btn" href="javascript:;">
-            <img src="//dev.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png">
-        </a>
-        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유하기</a></div>
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.1&appId=383422078729692&autoLogAppEvents=1';
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<button id="kakao-link-btn" onclick="kakao()">
+    <img src="//dev.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png">
+</button>
 
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유하기</a>
+</div>
 
-
-<script type="text/javascript">
-    //<![CDATA[
-    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('2cb3a6e0fcbaa964db791d1f9ad50f0d');
-    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-    Kakao.Link.createDefaultButton({
-        container: '#kakao-link-btn',
-        objectType: 'feed',
-        content: {
-            title: '딸기 치즈 케익',
-            description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-            imageUrl: 'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-            link: {
-                mobileWebUrl: 'localhost:8080/',
-                webUrl: 'localhost:8080/'
-            }
-        },
-        social: {
-            likeCount: 286,
-            commentCount: 45,
-            sharedCount: 845
-        },
-        buttons: [{
-            title: '웹으로 보기',
-            link: {
-                mobileWebUrl: 'localhost:8080/',
-                webUrl: 'localhost:8080/'
-            }
-        },
-            {
-                title: '앱으로 보기',
-                link: {
-                    mobileWebUrl: 'localhost:8080/',
-                    webUrl: 'localhost:8080/'
-                }
-            }]
-    });
-    //]]>
-</script>
-
+<script src="/js/main.js" type="text/javascript"></script>
 </body>
 </html>
