@@ -11,7 +11,9 @@
 앞으로 게시판을 만들 예정
 기능 (등록, 삭제, 읽기, 수정)
 + 댓글 (같음)
+<br><br><br>
 <center>
+    <button type="button" onclick="location.href='/newBoard'">글쓰기</button>
 <table>
     <tr>
         <td>번호</td>
