@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -22,6 +24,12 @@ public class BoardController {
         model.addAttribute("board", boardList);
 
         return "board/allBoard";
+    }
+
+    @GetMapping("/board/{boardNum}")
+    public String oneBoard (Model model, @PathVariable("boardNum") int boardNum){
+        model.addAttribute("oneBoard", boardDAO.findById(boardNum).get());
+        return "board/oneBoard";
     }
 
 }

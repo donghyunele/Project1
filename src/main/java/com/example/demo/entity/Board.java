@@ -28,9 +28,6 @@ public class Board {
     @Column(name = "reg_date")
     private Date regDate;
 
-    @Column(name = "read_count")
-    private int readCount;
-
     @Column(name = "content")
     private String content;
 
