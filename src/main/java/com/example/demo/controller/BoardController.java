@@ -60,4 +60,9 @@ public class BoardController {
 
         return "redirect:/board";
     }
+
+    @GetMapping("/edit")
+    public String editBoard(){
+        return "board/editBoard";
+    }
 }
