@@ -34,4 +34,17 @@ public class Board {
     @Column(name = "deleted")
     private Boolean deleted;
 
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void delete() {
+        this.deleted = true;
+    }
+
+    public void update(Board board){
+        this.title = board.title;
+        this.content = board.content;
+    }
 }
