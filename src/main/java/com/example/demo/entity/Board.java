@@ -32,7 +32,7 @@ public class Board {
     private String content;
 
     @Column(name = "deleted")
-    private Boolean deleted;
+    private Boolean deleted = false;
 
 
     public boolean isDeleted() {
