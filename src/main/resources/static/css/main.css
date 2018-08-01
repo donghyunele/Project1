@@ -1,0 +1,12 @@
+a{
+    text-decoration: none;
+    color: darkgray;
+}
+
+td {
+    width: 100px;
+}
+
+textarea {
+    resize: none;
+}
