@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <body>
+<jsp:include page="../main.jsp" />
 <!-- Main content -->
 <section class="content">
     <div class="row">
@@ -22,6 +23,7 @@
                             <th>WRITER</th>
                             <th>TITLE</th>
                             <th>REGDATE</th>
+
                         </tr>
                          <c:forEach items="${list}" var="boardVO">
                             <tr>
@@ -29,6 +31,7 @@
                                 <td>${boardVO.writer}</td>
                                 <td><a href='/board/read?boardNum=${boardVO.boardNum}'>${boardVO.title}</a></td>
                                 <td><fmt:formatDate pattern="yyyy-MM-dd" value="${boardVO.regDate}" /></td>
+                                <td><button type="button" onclick="location.href='/board/delete?boardNum=${boardVO.boardNum}'">삭제</button></td>
                            </tr>
                         </c:forEach>
                     </table>

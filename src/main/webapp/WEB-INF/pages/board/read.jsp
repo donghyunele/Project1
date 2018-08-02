@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <body>
+
+<jsp:include page="../main.jsp" />
 <!-- Main content -->
 <section class="content">
     <div class="row">

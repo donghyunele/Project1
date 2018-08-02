@@ -9,7 +9,7 @@
     여기에는 원래 비밀번호 확인 등의 확인 절차
 
     <button type="submit"> 제거 </button>
-    <button type="button" onclick="location.href='/board/read?boardNum=${modify.boardNum}'">삭제취소</button>
+    <button type="button" onclick="location.href='/board/read?boardNum=${delete.boardNum}'">삭제취소</button>
 
 </form:form>
 </body>

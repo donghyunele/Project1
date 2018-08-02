@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Date;
 
@@ -16,8 +17,9 @@ import java.sql.Date;
 public class Board {
 
     @Id
+    @GeneratedValue
     @Column(name = "board_num")
-    int boardNum;
+    private int boardNum;
 
     @Column(name = "writer")
     private String writer;

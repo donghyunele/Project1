@@ -7,5 +7,6 @@
     <button type="button" onclick="location.href='/signup'">회원가입</button>
     <button type="button" onclick="location.href='/event'">이벤트 참여하기</button>
     <button type="button" onclick="location.href='/board/listAll'">게시판</button>
+    <button type="button" onclick="location.href='/item/listAll'">상품</button>
 </body>
 </html>
