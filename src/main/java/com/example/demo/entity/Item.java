@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Date;
 
 @Entity
 @Data
@@ -24,16 +25,19 @@ public class Item {
     @Column(name = "price")
     private int price;
 
-    //배송비
     @Column(name = "delivery_fee")
     private int deliveryFee;
 
+    @Column(name = "reg_date")
+    private Date regDate;
+
+    @Column(name = "subject")
+    private String title;
+
+    @Column(name = "content")
+    private String content;
+
     private boolean deleted = false;
-    //기타 상세설명
-
-    //이미지 저장 위치(main)
-
-    //이미지 저장 위치(세부)
 
     public void update(Item item){
         this.price = item.price;
