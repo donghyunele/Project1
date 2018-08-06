@@ -33,6 +33,11 @@ public class serviceBoardController {
 
     @GetMapping("/read")
     public String read(@RequestParam("boardNum") int boarNum, Model model)throws Exception{
+
+        Board board = boardService.read(boarNum);
+        board.setCount(board.getCount()+1);
+        boardService.regist(board);
+
         model.addAttribute("read",boardService.read(boarNum));
         return "/board/read";
     }

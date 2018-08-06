@@ -22,6 +22,7 @@
                             <th>BNO</th>
                             <th>WRITER</th>
                             <th>TITLE</th>
+                            <th>조회수</th>
                             <th>REGDATE</th>
 
                         </tr>
@@ -31,6 +32,7 @@
                                 <td>${boardVO.writer}</td>
                                 <td><a href='/board/read?boardNum=${boardVO.boardNum}'>${boardVO.title}</a></td>
                                 <td><fmt:formatDate pattern="yyyy-MM-dd" value="${boardVO.regDate}" /></td>
+                                <td align="center">${boardVO.count}</td>
                                 <td><button type="button" onclick="location.href='/board/delete?boardNum=${boardVO.boardNum}'">삭제</button></td>
                            </tr>
                         </c:forEach>

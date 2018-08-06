@@ -28,7 +28,7 @@ public class FileUploadController {
     }
 
     @PostMapping("/files")
-    public String upload(Model model, @RequestParam("files") MultipartFile[] files){
+    public String upload(Model model, @RequestParam("files") MultipartFile[] files) throws IOException{
 
         //todo 아무 값도 안들어왔을때 처리 필요 / (jsp에서 자바스크립트 처리?)
 

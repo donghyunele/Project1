@@ -36,6 +36,9 @@ public class Board {
     @Column(name = "deleted")
     private Boolean deleted = false;
 
+    private int count = 0;
+
+    private int recnt = 0;
 
     public boolean isDeleted() {
         return deleted;

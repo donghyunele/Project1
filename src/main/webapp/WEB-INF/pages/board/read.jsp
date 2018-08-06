@@ -24,6 +24,9 @@
                     <div class="form-group">
                         <label>Writer</label> <input type="text" name="writer" class="form-control" value="${read.writer}" readonly="readonly">
                     </div>
+                    <div class="form-group">
+                        <label>조회수 : </label> <input type="text" name="count" class="form-control" value="${read.count}" readonly="readonly">
+                    </div>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
