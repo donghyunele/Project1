@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
@@ -12,10 +14,20 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Reply {
+
+    @Id
     private int rno;
     private int bno;
+
+    @Column(name = "reply_content")
     private String replyContent;
-    private String replyer;
-    private String userName;
+//    private String replyer;
+//    @Column(name = "user_name")
+//    private String userName;
+    @Column(name = "reg_date")
     private Date regDate;
+
+    public void update(Reply reply){
+        this.replyContent = reply.replyContent;
+    }
 }

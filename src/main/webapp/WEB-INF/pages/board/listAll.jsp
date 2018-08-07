@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
@@ -31,8 +30,8 @@
                                 <td>${boardVO.boardNum}</td>
                                 <td>${boardVO.writer}</td>
                                 <td><a href='/board/read?boardNum=${boardVO.boardNum}'>${boardVO.title}</a></td>
-                                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${boardVO.regDate}" /></td>
                                 <td align="center">${boardVO.count}</td>
+                                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${boardVO.regDate}" /></td>
                                 <td><button type="button" onclick="location.href='/board/delete?boardNum=${boardVO.boardNum}'">삭제</button></td>
                            </tr>
                         </c:forEach>

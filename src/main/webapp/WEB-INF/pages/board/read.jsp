@@ -1,5 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
+<head>
+    <script>
+        $(document).ready(function () {
+            listReply2();
+
+            $("#btnReply").click(function () {
+                var replytext=$("#replytext").val();
+                var bno = "${read.boardNum}"
+                var param = "replytext="+replytext+"&boardNum="+bno;
+
+                $.ajax({
+                    type: "post",
+                    url: "localhost:8080/reply/insert",
+                    data: param,
+                    success: function () {
+                        alert("댓글이 등록되었습니다");
+                        listReply2();
+                    }
+                });
+            });
+        });
+
+        function listReply2() {
+            $.ajax({
+                type:"get",
+                url : "localhost:8080/reply/listJson?boardNum=${read.boardNum}",
+                success: function (result) {
+                    console.log(result);
+                    var output = "<table>";
+                    for (var i in result){
+                        output += "<tr>";
+                        output += "<td>" + result[i].userName;
+                        output += "(" + result[i].regDate + ")<br>";
+                        output += result[i].replyContent+"</td>";
+                        output += "</tr>";
+                    }
+                    output += "</table>";
+                    $("#listReply").html(output);
+                }
+            });
+        }
+    </script>
+</head>
 <body>
 
 <jsp:include page="../main.jsp" />
@@ -36,6 +79,17 @@
 
                 </div>
 
+
+                <form action="reply/insert" method="post">
+                <div style="width:650px; text-align: center;">
+                    <br>
+                    <textarea rows="5" cols="80" id="replytext" placeholder="댓글을 작성해주세요."></textarea>
+                    <br>
+                    <button type="submit" id="btnReply">댓글 작성</button>
+                </div>
+                </form>
+
+                <div id="listReply"></div>
             </div>
         </div>
     </div>
