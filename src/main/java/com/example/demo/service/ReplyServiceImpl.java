@@ -5,6 +5,7 @@ import com.example.demo.entity.Reply;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
+
 public class ReplyServiceImpl implements ReplyService {
 
     @Autowired
