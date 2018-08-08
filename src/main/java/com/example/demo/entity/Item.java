@@ -14,42 +14,38 @@ import java.sql.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Board {
+public class Item {
 
     @Id
     @GeneratedValue
-    @Column(name = "board_num")
-    private int boardNum;
+    @Column(name = "item_num")
+    private int itemNum;
 
-    @Column(name = "writer")
-    private String writer;
+    //상품가격
+    @Column(name = "price")
+    private int price;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "delivery_fee")
+    private int deliveryFee;
 
     @Column(name = "reg_date")
     private Date regDate;
 
+    @Column(name = "subject")
+    private String title;
+
     @Column(name = "content")
     private String content;
 
-    @Column(name = "deleted")
-    private Boolean deleted = false;
+    private boolean deleted = false;
 
-    private int count = 0;
-
-    private int recnt = 0;
-
-    public boolean isDeleted() {
-        return deleted;
+    public void update(Item item){
+        this.price = item.price;
+        this.deliveryFee = item.deliveryFee;
     }
 
     public void delete() {
         this.deleted = true;
     }
 
-    public void update(Board board){
-        this.title = board.title;
-        this.content = board.content;
-    }
 }
