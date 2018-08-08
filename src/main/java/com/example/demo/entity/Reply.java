@@ -17,7 +17,8 @@ public class Reply {
 
     @Id
     private int rno;
-    private int bno;
+    @Column(name = "bno")
+    private int boardNum;
 
     @Column(name = "reply_content")
     private String replyContent;

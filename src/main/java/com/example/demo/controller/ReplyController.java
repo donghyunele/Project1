@@ -4,18 +4,17 @@ import com.example.demo.dao.ReplyDAO;
 import com.example.demo.entity.Reply;
 import com.example.demo.service.BoardService;
 import com.example.demo.service.ReplyService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.inject.Inject;
+import java.util.List;
 
 //@Controller 와 @RestController 차이 -> 메서드 종료 되면 화면전환 유무
 
-@Controller
+@RestController
 @RequestMapping("board/reply")
 public class ReplyController {
 
@@ -23,10 +22,15 @@ public class ReplyController {
     private ReplyService replyService;
 
     @PostMapping("/insert")
-    public void insert(Reply reply) throws Exception {
+    public void insert(@RequestBody Reply reply) throws Exception {
 
-        System.out.println("여기");
-        replyService.regist(reply);
+//        replyService.regist(reply);
+
+        System.out.println(reply);
+
+//        List<Reply> replyList = replyService.findAll();
+
+//        return replyList;
     }
 
 

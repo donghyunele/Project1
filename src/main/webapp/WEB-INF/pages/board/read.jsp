@@ -1,19 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <% String path = request.getContextPath(); %>
     <script>
         $(document).ready(function () {
             listReply2();
 
             $("#btnReply").click(function () {
                 var replytext=$("#replytext").val();
-                var bno = "${read.boardNum}"
-                var param = "replytext="+replytext+"&boardNum="+bno;
+                var bno = "${read.boardNum}";
+                var param = {
+                    "replyContent" : replytext,
+                    "boardNum" : bno
+                };
+
+                console.log(param);
 
                 $.ajax({
-                    type: "post",
-                    url: "localhost:8080/reply/insert",
-                    data: param,
+                    <%--url: "<%=path%>/reply/insert",--%>
+                    type: "POST",
+                    contentType: "application/json; charset=UTF-8",
+                    dataType: "json",
+                    data: JSON.stringify(param),
                     success: function () {
                         alert("댓글이 등록되었습니다");
                         listReply2();
@@ -31,7 +40,6 @@
                     var output = "<table>";
                     for (var i in result){
                         output += "<tr>";
-                        output += "<td>" + result[i].userName;
                         output += "(" + result[i].regDate + ")<br>";
                         output += result[i].replyContent+"</td>";
                         output += "</tr>";
