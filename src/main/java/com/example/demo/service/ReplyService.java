@@ -4,7 +4,7 @@ import com.example.demo.entity.Reply;
 
 import java.util.List;
 
-public interface ReplyService {
+public interface  ReplyService {
     void regist(Reply reply) throws Exception;
     Reply read(int bno) throws Exception;
     void modify(int bno,Reply reply) throws Exception;
