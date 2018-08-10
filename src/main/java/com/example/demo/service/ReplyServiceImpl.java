@@ -36,7 +36,7 @@ public class ReplyServiceImpl implements ReplyService {
     }
 
     @Override
-    public List<Reply> findAll() throws Exception {
-        return replyDAO.findAll();
+    public List<Reply> findAll(int boardNum) throws Exception {
+        return replyDAO.findAllByBoardNum(boardNum);
     }
 }
