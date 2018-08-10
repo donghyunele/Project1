@@ -9,5 +9,5 @@ public interface  ReplyService {
     Reply read(int bno) throws Exception;
     void modify(int bno,Reply reply) throws Exception;
     void remove(int bno) throws Exception;
-    List<Reply> findAll() throws Exception;
+    List<Reply> findAll(int boardNum) throws Exception;
 }

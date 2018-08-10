@@ -10,7 +10,6 @@
 <h2>게시글 보기</h2>
 <form method="post" name="form1">
     <div>
-        작성일자 : <fmt:formatDate value=""
     </div>
 </form>
 </body>

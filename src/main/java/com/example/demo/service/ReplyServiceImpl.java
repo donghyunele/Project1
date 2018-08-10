@@ -3,9 +3,11 @@ package com.example.demo.service;
 import com.example.demo.dao.ReplyDAO;
 import com.example.demo.entity.Reply;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-
+@Service
 public class ReplyServiceImpl implements ReplyService {
 
     @Autowired
@@ -34,7 +36,7 @@ public class ReplyServiceImpl implements ReplyService {
     }
 
     @Override
-    public List<Reply> findAll() throws Exception {
-        return replyDAO.findAll();
+    public List<Reply> findAll(int boardNum) throws Exception {
+        return replyDAO.findAllByBoardNum(boardNum);
     }
 }

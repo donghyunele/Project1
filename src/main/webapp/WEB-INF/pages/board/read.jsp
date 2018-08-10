@@ -1,22 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            listReply2();
+            listReply2();//thats reason why this is can execute
 
             $("#btnReply").click(function () {
                 var replytext=$("#replytext").val();
-                var bno = "${read.boardNum}"
-                var param = "replytext="+replytext+"&boardNum="+bno;
+                var bno = "${read.boardNum}";
+                var param = {
+                    "replyContent" : replytext,
+                    "boardNum" : bno
+                };
 
                 $.ajax({
-                    type: "post",
-                    url: "localhost:8080/reply/insert",
-                    data: param,
-                    success: function () {
-                        alert("댓글이 등록되었습니다");
-                        listReply2();
+                    url: "http://localhost:8080/board/reply/insert",
+                    type: "POST",
+                    contentType : "application/json; charset=UTF-8",
+                    dataType: "json",
+                    data: JSON.stringify(param),
+                    success: function (check) {
+                        if (check==1){
+                            alert("댓글이 등록되었습니다");
+                            listReply2();
+                        }
                     }
                 });
             });
@@ -25,21 +33,37 @@
         function listReply2() {
             $.ajax({
                 type:"get",
-                url : "localhost:8080/reply/listJson?boardNum=${read.boardNum}",
+                url : "http://localhost:8080/board/reply/listJson?boardNum=${read.boardNum}",
                 success: function (result) {
                     console.log(result);
+
                     var output = "<table>";
+
                     for (var i in result){
+                        output += "<br>";
                         output += "<tr>";
-                        output += "<td>" + result[i].userName;
-                        output += "(" + result[i].regDate + ")<br>";
+                        output += "(" + changeDate(result[i].regDate) + ")<br>";
                         output += result[i].replyContent+"</td>";
                         output += "</tr>";
                     }
                     output += "</table>";
+
                     $("#listReply").html(output);
                 }
             });
+        }
+        
+        function changeDate(data) {
+
+            var date = new Date(data);
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            var strDate = year + "-" + month+"-"+day+" "+hour+":"+minute+":"+second;
+            return strDate;
         }
     </script>
 </head>
@@ -79,15 +103,12 @@
 
                 </div>
 
-
-                <form action="reply/insert" method="post">
                 <div style="width:650px; text-align: center;">
                     <br>
                     <textarea rows="5" cols="80" id="replytext" placeholder="댓글을 작성해주세요."></textarea>
                     <br>
                     <button type="submit" id="btnReply">댓글 작성</button>
                 </div>
-                </form>
 
                 <div id="listReply"></div>
             </div>
