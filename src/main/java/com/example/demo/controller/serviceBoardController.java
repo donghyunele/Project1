@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Board;
 import com.example.demo.service.BoardService;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +17,8 @@ public class serviceBoardController {
     private BoardService boardService;
 
     @GetMapping("/listAll")
-    public String listAll(Model model) throws Exception{
-        model.addAttribute("list", boardService.findAll());
+    public String listAll(Model model, @RequestParam(defaultValue = "0") int page) throws Exception{
+        model.addAttribute("list", boardService.findAll(new PageRequest(page,5)));
         return "/board/listAll";
     }
 

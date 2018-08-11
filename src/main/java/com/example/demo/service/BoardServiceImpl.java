@@ -3,6 +3,8 @@ package com.example.demo.service;
 import com.example.demo.dao.BoardDAO;
 import com.example.demo.entity.Board;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
@@ -41,8 +43,8 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<Board> findAll() throws Exception {
+    public Page<Board> findAll(PageRequest pageRequest) throws Exception {
         Specification<Board> del = Specifications.where(BoardSpecification.deleted(false));
-        return boardDAO.findAll(del);
+        return boardDAO.findAll(del, pageRequest);
     }
 }

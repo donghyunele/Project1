@@ -25,17 +25,23 @@
                             <th>REGDATE</th>
 
                         </tr>
-                         <c:forEach items="${list}" var="boardVO">
+                         <c:forEach items="${list.content}" var="list">
                             <tr>
-                                <td>${boardVO.boardNum}</td>
-                                <td>${boardVO.writer}</td>
-                                <td><a href='/board/read?boardNum=${boardVO.boardNum}'>${boardVO.title}</a></td>
-                                <td align="center">${boardVO.count}</td>
-                                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${boardVO.regDate}" /></td>
-                                <td><button type="button" onclick="location.href='/board/delete?boardNum=${boardVO.boardNum}'">삭제</button></td>
+                                <td>${list.boardNum}</td>
+                                <td>${list.writer}</td>
+                                <td><a href='/board/read?boardNum=${list.boardNum}'>${list.title}</a></td>
+                                <td align="center">${list.count}</td>
+                                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.regDate}" /></td>
+                                <td><button type="button" onclick="location.href='/board/delete?boardNum=${list.boardNum}'">삭제</button></td>
                            </tr>
                         </c:forEach>
+
+
+
                     </table>
+                        <c:forEach begin="1" end="${list.totalPages}" var="i">
+                            <a href="/board/listAll?page=${i-1}" >${i}</a>
+                        </c:forEach>
                 </div>
             </div>
         </div>
