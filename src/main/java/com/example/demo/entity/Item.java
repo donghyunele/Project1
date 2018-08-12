@@ -18,30 +18,29 @@ public class Item {
 
     @Id
     @GeneratedValue
-    @Column(name = "item_num")
     private int itemNum;
 
-    //상품가격
-    @Column(name = "price")
+    private String name;
+
     private int price;
 
-    @Column(name = "delivery_fee")
-    private int deliveryFee;
+    private int quantity;
 
-    @Column(name = "reg_date")
-    private Date regDate;
-
-    @Column(name = "subject")
-    private String title;
-
-    @Column(name = "content")
     private String content;
+
+    private String photo;
+
+    private int categoryId;
 
     private boolean deleted = false;
 
     public void update(Item item){
+        this.name = item.name;
+        this.quantity = item.quantity;
         this.price = item.price;
-        this.deliveryFee = item.deliveryFee;
+        this.content = item.content;
+        this.photo = item.photo;
+        this.categoryId = item.categoryId;
     }
 
     public void delete() {
