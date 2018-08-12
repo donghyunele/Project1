@@ -29,6 +29,10 @@ public class PageController {
     public String event(){
         return "event";
     }
+    @GetMapping("/summernote")
+    public String summerNote(){
+        return "summernote";
+    }
 
     //사용자 회원가입 관련 컨트롤러
     @PostMapping("/signup")
