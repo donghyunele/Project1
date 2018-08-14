@@ -18,7 +18,7 @@ public class Item {
 
     @Id
     @GeneratedValue
-    private int itemNum;
+    private int id;
 
     private String name;
 
@@ -26,11 +26,9 @@ public class Item {
 
     private int quantity;
 
-    private String content;
+    private String desc;
 
-    private String photo;
-
-    private int categoryId;
+    private String url;
 
     private boolean deleted = false;
 
@@ -38,9 +36,8 @@ public class Item {
         this.name = item.name;
         this.quantity = item.quantity;
         this.price = item.price;
-        this.content = item.content;
-        this.photo = item.photo;
-        this.categoryId = item.categoryId;
+        this.desc = item.desc;
+        this.url = item.url;
     }
 
     public void delete() {
