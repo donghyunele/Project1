@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @RequestMapping("/item")
 @Controller
@@ -19,10 +22,11 @@ public class ItemController {
     private ItemService itemService;
 
     @GetMapping("/list")
-    public String All() throws Exception {
+    public String All(Model model) throws Exception {
+        List<Item> list = itemService.findAll();
+        model.addAttribute("list", list);
 
-        itemService.findAll();
-        return "item/index";
+        return "item/read";
     }
 
     @GetMapping("/{id}")

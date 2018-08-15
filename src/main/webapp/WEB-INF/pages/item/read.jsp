@@ -6,31 +6,32 @@
 <jsp:include page="../main.jsp" />
 
     <h2> 상품 목록 </h2>
-<tabe>
+<table>
     <tr>
         <th>상품번호</th>
         <th>상품이미지</th>
         <th>상품명</th>
         <th>가격</th>
     </tr>
-    <c:forEach var="row" items="${list}">
+
+    <c:forEach var="list" items="${list}">
         <tr>
             <td>
-                ${row.Id}
+                ${list.id}
             </td>
             <td>
-                <a href="${path}/detail/${row.Id}">
-                    <img src="${path}/images/${row.Url}">
+                <a href="${path}/detail/${list.id}">
+                    <img src="${path}/images/${list.url}">
                 </a>
             </td>
             <td>
-                ${row.Name}
+                ${list.name}
             </td>
             <td>
-                <fmt:formatNumber value="${row.Price}" pattern="###,###,###" />
+                <fmt:formatNumber value="${list.price}" pattern="###,###,###" />
             </td>
         </tr>
     </c:forEach>
-</tabe>
+</table>
 </body>
 </html>
