@@ -18,14 +18,16 @@ public class Users {
     private String id;
     @Column(name = "password")
     private String password;
-    @Column(name = "name")
     private String name;
-    @Column(name = "zip_code")
-    private int zipCode;
-    @Column(name = "main_addr")
+    private String zipCode;
     private String mainAddr;
-    @Column(name = "sub_addr")
     private String subAddr;
-    @Column(name = "ref_addr")
     private String refAddr;
+    public void update(Users users){
+        this.password = users.password;
+        this.mainAddr = users.mainAddr;
+        this.zipCode = users.zipCode;
+        this.subAddr = users.subAddr;
+        this.refAddr = users.refAddr;
+    }
 }
