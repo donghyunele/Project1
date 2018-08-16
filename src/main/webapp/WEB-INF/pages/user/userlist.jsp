@@ -15,10 +15,12 @@
     <c:forEach var="list" items="${list}">
         <tr>
             <td> ${list.id}</td>
-            <td> ${list.name}</td>
+            <td> <a href="/users/view?id=${list.id}"> ${list.name}</a></td>
             <td> ${list.mainAddr}</td>
         </tr>
+
     </c:forEach>
+
 </table>
 </body>
 </html>

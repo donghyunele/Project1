@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 @Data
@@ -23,6 +24,7 @@ public class Users {
     private String mainAddr;
     private String subAddr;
     private String refAddr;
+    private Date regDate;
     public void update(Users users){
         this.password = users.password;
         this.mainAddr = users.mainAddr;
