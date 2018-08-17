@@ -75,10 +75,12 @@ public class UserController {
     }
 
     @PutMapping("/modify")
-    public String modify(@RequestParam("id") String id, Users users) throws Exception {
+    public int modify(@RequestBody Users users) throws Exception {
         System.out.println("----- Put modify method -----");
-        userService.modify(id, users);
-        return "redirect:/user/userlist";
+//        users.setName(users);
+        System.out.println(users);
+        userService.modify(users.getId(), users);
+        return 1;
     }
 
     @DeleteMapping("/delete")

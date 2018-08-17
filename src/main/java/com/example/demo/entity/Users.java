@@ -26,10 +26,10 @@ public class Users {
     private String refAddr;
     private Date regDate;
     public void update(Users users){
-        this.password = users.password;
-        this.mainAddr = users.mainAddr;
-        this.zipCode = users.zipCode;
-        this.subAddr = users.subAddr;
-        this.refAddr = users.refAddr;
+        this.name = users.name;
+//        this.mainAddr = users.mainAddr;
+//        this.zipCode = users.zipCode;
+//        this.subAddr = users.subAddr;
+//        this.refAddr = users.refAddr;
     }
 }
