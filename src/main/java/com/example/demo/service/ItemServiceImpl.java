@@ -38,6 +38,6 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<Item> findAll() throws Exception {
-        return null;
+        return itemDAO.findAllByDeleted(false);
     }
 }

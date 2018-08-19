@@ -32,22 +32,22 @@
         <tr>
             <td>우편번호 : </td>
 
-            <td><input type="text" size="6" name="zipcode" class="postcodify_postcode5" value="" />
+            <td><input type="text" size="6" name="zipCode" class="postcodify_postcode5" value="" />
                 <button type="button" id="postcodify_search_button">검색</button>
             </td>
         </tr>
         <tr>
             <td>도로명 주소 : </td>
-            <td><input type="text" name="mainaddr" class="postcodify_address" value="" /></td>
+            <td><input type="text" name="mainAddr" class="postcodify_address" value="" /></td>
         </tr>
 
         <tr>
             <td>상세주소 : </td>
-            <td><input type="text" name="subaddr" class="postcodify_details" value="" /></td>
+            <td><input type="text" name="subAddr" class="postcodify_details" value="" /></td>
         </tr>
         <tr>
             <td>참고항목 : </td>
-            <td><input type="text" name="refaddr" class="postcodify_extra_info" value="" /></td>
+            <td><input type="text" name="refAddr" class="postcodify_extra_info" value="" /></td>
         </tr>
         <!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
 

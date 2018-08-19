@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.dao.UsersDAO;
 import com.example.demo.entity.Users;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +13,7 @@ import java.util.Objects;
 
 @Controller
 public class PageController {
+    private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 
     @Autowired
     private UsersDAO usersDAO;
@@ -20,10 +23,7 @@ public class PageController {
         return "main";
     }
 
-    @GetMapping("/signup")
-    public String signup(){
-        return "signup";
-    }
+
 
     @GetMapping("/event")
     public String event(){
@@ -34,31 +34,5 @@ public class PageController {
         return "summernote";
     }
 
-    //사용자 회원가입 관련 컨트롤러
-    @PostMapping("/signup")
-    public String signup(String id, String password, String name, int zipCode, String mainAddr, String subAddr, String refAddr){
-
-        if(Objects.isNull(id) || Objects.isNull(password) || Objects.isNull(name) || Objects.isNull(zipCode) || Objects.isNull(mainAddr) ||
-                Objects.isNull(subAddr) || Objects.isNull(refAddr)) {
-            return "signup";
-        }
-
-        Users users = new Users();
-
-        users.setId(id);
-        users.setPassword(password);
-        users.setName(name);
-        users.setZipCode(zipCode);
-        users.setMainAddr(mainAddr);
-        users.setSubAddr(subAddr);
-        users.setRefAddr(refAddr);
-
-        Users registeredUser = usersDAO.save(users);
-        if( Objects.isNull(registeredUser)) {
-            return "signup";
-        }
-
-        return "redirect:/";
-    }
 
 }
