@@ -75,18 +75,24 @@ public class UserController {
     }
 
     @PutMapping("/modify")
+    @ResponseBody
     public int modify(@RequestBody Users users) throws Exception {
-        System.out.println("----- Put modify method -----");
-//        users.setName(users);
-        System.out.println(users);
         userService.modify(users.getId(), users);
         return 1;
     }
 
     @DeleteMapping("/delete")
-    public String delete(@RequestParam("id")String id) throws Exception {
-        userService.remove(id);
-        return "redirect:/user/userlist";
+    @ResponseBody
+    public int delete(@RequestBody Users users) throws Exception {
+
+        boolean result = users.getPassword().equals( userService.read(users.getId()).getPassword());
+        if(result){
+            userService.remove(users.getId());
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 
 }

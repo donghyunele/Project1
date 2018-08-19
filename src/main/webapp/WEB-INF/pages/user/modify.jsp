@@ -21,10 +21,10 @@
                     success: function (check) {
                         if (check==1){
                             alert("변경 되었습니다");
+                            location.href="http://localhost:8080/users/list";
                         }
                     }
                 });
-
             }
         }
     </script>
@@ -39,10 +39,6 @@
         <tr>
             <td>ID</td>
             <td><input name="id" id="id" value="${user.id}" readonly="readonly"></td>
-        </tr>
-        <tr>
-            <td>PASSWORD</td>
-            <td><input type="password" id="password" name="password"> </td>
         </tr>
         <tr>
             <td>이름</td>

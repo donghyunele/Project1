@@ -12,14 +12,34 @@
                 }
             });
 
-            $("#UserDelete").click(function () {
-                if(confirm("삭제하시겠습니까?")){
-                    document.form1.action="http://localhost:8080/users/delete";
-                    document.form1.method="DELETE";
-                    document.form1.submit();
-                }
-            });
         });
+
+        function doDelMethod(method) {
+            if (confirm("삭제하시겠습니까?")) {
+                var id =$("#id").val();
+                var pass =$("#password").val();
+                var param = { "id" : id , "password" : pass }
+
+                $.ajax({
+                    type : method,
+                    url : "http://localhost:8080/users/delete",
+                    contentType : "application/json; charset=UTF-8",
+                    dataType: "json",
+                    data: JSON.stringify(param),
+                    success: function (check) {
+                        if (check==1){
+                            alert("삭제 되었습니다");
+                            location.href="http://localhost:8080/users/list";
+                        }
+                        else
+                        {
+                            $("#password").val("");
+                            $("#passcehck").text("비밀번호 불일치");
+                        }
+                    }
+                });
+            }
+        }
     </script>
 </head>
 <body>
@@ -29,11 +49,11 @@
     <table>
         <tr>
             <td>ID</td>
-            <td><input name="id" value="${user.id}" readonly="readonly"></td>
+            <td><input id="id" name="id" value="${user.id}" readonly="readonly"></td>
         </tr>
         <tr>
             <td>PASSWORD</td>
-            <td><input type="password" name="password"> </td>
+            <td><input type="password" id="password" name="password"></td>
         </tr>
         <tr>
             <td>이름</td>
@@ -49,8 +69,8 @@
         <tr>
             <td colspan="2">
                 <input type="button" value="수정" id="UserUpdate">
-                <input type="button" value="삭제" id="UserDelete">
-                <div style="color: red;">${message}</div>
+                <input type="button" value="삭제" onclick="doDelMethod('DELETE')">
+                <div id="passcehck" style="color: red;">${message}</div>
             </td>
         </tr>
     </table>
